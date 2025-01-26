@@ -2,35 +2,12 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public Rigidbody sphereRigidbody;
-    public float ballSpeed;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Rigidbody sphereRigidbody;
+    [SerializeField] private float ballSpeed;
+ 
+    public void MoveBall(Vector2 input)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Vector2 inputVector = Vector2.zero; // intialize our input vector
-        if (Input.GetKey(KeyCode.W))
-        {
-            inputVector += Vector2.up;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            inputVector += Vector2.down;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            inputVector += Vector2.left;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            inputVector += Vector2.right;
-        }
-        Vector3 inputXZPlane = new Vector3(inputVector.x,0, inputVector.y); //get new 3D vector
+        Vector3 inputXZPlane = new Vector3(input.x,0, input.y); //get new 3D vector, y in 2d is the z in 3d
         sphereRigidbody.AddForce(inputXZPlane*ballSpeed); //apply force on ball
     }
 }
