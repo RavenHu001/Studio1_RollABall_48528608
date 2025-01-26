@@ -576,6 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphereRigidbody: {fileID: 1411568428}
+  ballSpeed: 1
 --- !u!1 &1859581157
 GameObject:
   m_ObjectHideFlags: 0
