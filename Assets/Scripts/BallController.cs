@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public Rigidbody sphereRigidbody;
+    public float ballSpeed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("calling start");
+        
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class Ball : MonoBehaviour
         {
             inputVector += Vector2.right;
         }
-        Debug.Log("Resultant Vector: " + inputVector);
+        Vector3 inputXZPlane = new Vector3(inputVector.x,0, inputVector.y); //get new 3D vector
+        sphereRigidbody.AddForce(inputXZPlane*ballSpeed); //apply force on ball
     }
 }
